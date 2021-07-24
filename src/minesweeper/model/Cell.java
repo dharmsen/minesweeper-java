@@ -7,23 +7,26 @@ public class Cell {
     private int y;
     private boolean visible;
     private int adjacent;
+    private boolean flagged;
 
     /**
      * Constructor method for Cell
      * @param x horizontal position in grid
      * @param y vertical position in grid
      * @param visible visibility (clicked/not clicked)
-     * @param adjacent how many mines are adjacent to this cell
+     * @param adjacent how many mines are adjacent to this cell, -1 = mine
+     * @param flagged if player flagged this cell as safe
      */
-    public Cell(int x, int y, boolean visible, int adjacent) {
+    public Cell(int x, int y, boolean visible, int adjacent, boolean flagged) {
         this.x = x;
         this.y = y;
         this.visible = visible;
         this.adjacent = adjacent;
+        this.flagged = flagged;
     }
 
     public int getX() {
-        return x;
+        return this.x;
     }
 
     public void setX(int x) {
@@ -31,7 +34,7 @@ public class Cell {
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(int y) {
@@ -39,7 +42,7 @@ public class Cell {
     }
 
     public boolean getVisible() {
-        return visible;
+        return this.visible;
     }
 
     public void setVisible(boolean visible) {
@@ -47,10 +50,18 @@ public class Cell {
     }
 
     public int getAdjacent() {
-        return adjacent;
+        return this.adjacent;
     }
 
     public void setAdjacent(int adjacent) {
         this.adjacent = adjacent;
+    }
+
+    public boolean getFlagged() {
+        return this.flagged;
+    }
+
+    public void setFlagged(boolean flagged) {
+        this.flagged = flagged;
     }
 }
